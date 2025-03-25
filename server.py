@@ -3,7 +3,7 @@ import threading
 import os
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-PORT = int(os.getenv("PORT", 5555))
+PORT = int(os.getenv("PORT", 8080))
 
 server.bind(("0.0.0.0", PORT))
 server.listen()
