@@ -1,9 +1,13 @@
 import socket
 import threading
+import os
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind(("192.168.0.122", 5555))  # Сервер слушает на этом порту
+PORT = int(os.getenv("PORT", 5555))
+
+server.bind(("0.0.0.0", PORT))
 server.listen()
+print(f"Сервер запущен на порту {PORT}")
 
 players = {}  # ID игрока -> (x, y)
 player_id = 0
